@@ -2,15 +2,15 @@
 
 let count = document.getElementById('container');
 
-let countdown = ()=>{
-    let time = 11;
-    let clear = setInterval(()=>{
-       time = time-1;
-       count.innerText = time;
-       if(time==0){
-        clearInterval(clear)
-        count.innerText = ("Happy Independence Day")
-       }
-    },1000);
+let countdown = (number)=>{
+    if(number > 0){
+        count.innerText = number;
+        setTimeout(() => {
+            countdown(number - 1);
+        }, 1000);
+    }
+    else{
+        count.innerText = ("Happy Independence Day");
+    }
 }
-countdown();
+countdown(10);
